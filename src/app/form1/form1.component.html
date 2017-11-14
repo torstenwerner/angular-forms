@@ -1,14 +1,14 @@
 <h2>form1</h2>
 
-<form [formGroup]="fullform">
+<div [formGroup]="formGroup">
   <label>First name:
     <input formControlName="firstName">
   </label>
-</form>
+</div>
 
 <p>
-  value: {{fullform.value | json}}
+  value: {{formGroup.value | json}}
 </p>
 <p>
-  status: {{fullform.status | json}}
+  status: {{formGroup.status | json}}
 </p>

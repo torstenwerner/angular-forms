@@ -1,3 +1,4 @@
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  fullform: FormGroup;
+  person: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+
+    this.person = this.formBuilder.group({
+      firstName: 'Hildegunst'
+    });
+    this.fullform = this.formBuilder.group({
+      person: this.person
+    });
+    console.log(this.fullform.value.person);
+  }
 }

@@ -1,5 +1,5 @@
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-form1',
@@ -9,13 +9,9 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class Form1Component implements OnInit {
 
-  fullform: FormGroup;
+  @Input() formGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
-    this.fullform = this.formBuilder.group({
-      firstName: 'Hildegunst'
-    });
-  }
+  constructor() { }
 
   ngOnInit() {
   }
