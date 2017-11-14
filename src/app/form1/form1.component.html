@@ -1,0 +1,8 @@
+<h2>form1</h2>
+
+<form #f="ngForm">
+  <input type="text" name="firstName" ngModel>
+</form>
+<p>
+    value: {{f.value | json}}    
+</p>

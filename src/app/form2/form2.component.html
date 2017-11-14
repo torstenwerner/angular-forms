@@ -1,0 +1,8 @@
+<h2>form2</h2>
+
+<form #f="ngForm">
+  <input type="text" name="street" ngModel="Musterstraße">
+</form>
+<p>
+    value: {{f.value | json}}    
+</p>
