@@ -1,4 +1,4 @@
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -9,11 +9,13 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class Form1Component implements OnInit {
 
-  fullform = new FormGroup({
-    firstName: new FormControl()
-  });
+  fullform: FormGroup;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) {
+    this.fullform = this.formBuilder.group({
+      firstName: 'Hildegunst'
+    });
+  }
 
   ngOnInit() {
   }
