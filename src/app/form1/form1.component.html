@@ -1,8 +1,14 @@
 <h2>form1</h2>
 
-<form #f="ngForm">
-    <input type="text" name="firstName" ngModel="Hildegunst">
-  </form>
-  <p>
-      value: {{f.value | json}}    
-  </p>
+<form [formGroup]="fullform">
+  <label>First name:
+    <input formControlName="firstName">
+  </label>
+</form>
+
+<p>
+  value: {{fullform.value | json}}
+</p>
+<p>
+  status: {{fullform.status | json}}
+</p>
