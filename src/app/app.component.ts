@@ -1,5 +1,6 @@
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Component } from '@angular/core';
+import { FormService } from './form.service';
 
 @Component({
   selector: 'app-root',
@@ -13,17 +14,10 @@ export class AppComponent {
   address: FormGroup;
   fullform: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formService: FormService) {
 
-    this.person = this.formBuilder.group({
-      firstName: 'Hildegunst'
-    });
-    this.address = this.formBuilder.group({
-      street: 'Musterstraße'
-    });
-    this.fullform = this.formBuilder.group({
-      person: this.person,
-      address: this.address
-    });
+    this.person = this.formService.person;
+    this.address = this.formService.address;
+    this.fullform = this.formService.fullform;
   }
 }

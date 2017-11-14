@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { Form1Component } from './form1/form1.component';
 import { Form2Component } from './form2/form2.component';
+import { FormService } from './form.service';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { Form2Component } from './form2/form2.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [FormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
