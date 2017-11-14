@@ -1,5 +1,6 @@
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormService } from '../form.service';
 
 @Component({
   selector: 'app-form1',
@@ -9,9 +10,11 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class Form1Component implements OnInit {
 
-  @Input() formGroup: FormGroup;
+  formGroup: FormGroup;
 
-  constructor() { }
+  constructor(private formService: FormService) {
+    this.formGroup = this.formService.person;
+  }
 
   ngOnInit() {
   }
