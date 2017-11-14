@@ -6,9 +6,8 @@
 
   <form [formGroup]="fullform">
     <app-form1 [formGroup]="person"></app-form1>
+    <app-form2 [formGroup]="address"></app-form2>
   </form>
-  
-  <app-form2></app-form2>
 
   <h2>full form</h2>
   value: {{fullform.value | json}}, status: {{fullform.status | json}}

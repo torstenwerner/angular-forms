@@ -9,17 +9,21 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
 
-  fullform: FormGroup;
   person: FormGroup;
+  address: FormGroup;
+  fullform: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
 
     this.person = this.formBuilder.group({
       firstName: 'Hildegunst'
     });
-    this.fullform = this.formBuilder.group({
-      person: this.person
+    this.address = this.formBuilder.group({
+      street: 'Musterstraße'
     });
-    console.log(this.fullform.value.person);
+    this.fullform = this.formBuilder.group({
+      person: this.person,
+      address: this.address
+    });
   }
 }
