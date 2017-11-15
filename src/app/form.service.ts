@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
 
-export class SubFormConfig {
+export class FormConfig {
   constructor(
     public formGroup: FormGroup,
     public title: string,
@@ -18,7 +18,7 @@ export class FormService {
 
   fullform: FormGroup;
 
-  private subForms: Array<SubFormConfig>;
+  private subForms: Array<FormConfig>;
 
   constructor() {
 
@@ -31,12 +31,12 @@ export class FormService {
     this.fullform = new FormGroup({ person, address });
 
     this.subForms = [
-      new SubFormConfig(person, 'Person Form', firstName, 'First Name'),
-      new SubFormConfig(address, 'Address Form', street, 'Street')
+      new FormConfig(person, 'Person Form', firstName, 'First Name'),
+      new FormConfig(address, 'Address Form', street, 'Street')
     ];
   }
 
-  formConfig(route: ActivatedRoute): Observable<SubFormConfig> {
+  formConfig(route: ActivatedRoute): Observable<FormConfig> {
     return route.paramMap.map(paramMap => this.subForms[+paramMap.get('id')]);
   }
 }

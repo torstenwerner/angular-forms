@@ -1,7 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormService, SubFormConfig } from '../form.service';
+import { FormService, FormConfig } from '../form.service';
 
 @Component({
   templateUrl: './subform.component.html',
@@ -9,7 +9,7 @@ import { FormService, SubFormConfig } from '../form.service';
 })
 export class SubformComponent implements OnInit {
 
-  formConfig: SubFormConfig;
+  formConfig: FormConfig;
 
   constructor(private formService: FormService,
     private route: ActivatedRoute) { }
