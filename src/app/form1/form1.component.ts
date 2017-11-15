@@ -1,6 +1,6 @@
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormService } from '../form.service';
+import { FormService, SubFormConfig } from '../form.service';
 
 @Component({
   selector: 'app-form1',
@@ -10,10 +10,11 @@ import { FormService } from '../form.service';
 })
 export class Form1Component implements OnInit {
 
-  formGroup: FormGroup;
+  id = 0;
+  formConfig: SubFormConfig;
 
   constructor(private formService: FormService) {
-    this.formGroup = this.formService.person;
+    this.formConfig = this.formService.subForms[this.id];
   }
 
   ngOnInit() {

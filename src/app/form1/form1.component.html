@@ -1,14 +1,14 @@
-<h2>form1</h2>
+<h2>{{formConfig.title}}</h2>
 
-<div [formGroup]="formGroup">
-  <label>First name:
-    <input formControlName="firstName">
+<div [formGroup]="formConfig.formGroup">
+  <label>{{formConfig.label}}:
+    <input [formControlName]="formConfig.formControlName">
   </label>
 </div>
 
 <p>
-  value: {{formGroup.value | json}}
+  value: {{formConfig.formGroup.value | json}}
 </p>
 <p>
-  status: {{formGroup.status | json}}
+  status: {{formConfig.formGroup.status | json}}
 </p>
