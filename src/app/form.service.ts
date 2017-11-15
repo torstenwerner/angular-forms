@@ -1,5 +1,9 @@
 import { FormControl, FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+
+import 'rxjs/add/operator/map';
 
 export class SubFormConfig {
   constructor(
@@ -14,7 +18,7 @@ export class FormService {
 
   fullform: FormGroup;
 
-  subForms: Array<SubFormConfig>;
+  private subForms: Array<SubFormConfig>;
 
   constructor() {
 
@@ -30,5 +34,9 @@ export class FormService {
       new SubFormConfig(person, 'Person Form', firstName, 'First Name'),
       new SubFormConfig(address, 'Address Form', street, 'Street')
     ];
+  }
+
+  formConfig(route: ActivatedRoute): Observable<SubFormConfig> {
+    return route.paramMap.map(paramMap => this.subForms[+paramMap.get('id')]);
   }
 }
