@@ -4,12 +4,10 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormService, SubFormConfig } from '../form.service';
 
 @Component({
-  selector: 'app-form1',
-  templateUrl: './form1.component.html',
-  styleUrls: ['./form1.component.css'],
+  templateUrl: './subform.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class Form1Component implements OnInit {
+export class SubformComponent implements OnInit {
 
   formConfig: SubFormConfig;
 
