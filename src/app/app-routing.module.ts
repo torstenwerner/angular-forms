@@ -4,9 +4,8 @@ import { NgModule } from '@angular/core';
 import { Form1Component } from './form1/form1.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/form1', pathMatch: 'full' },
-  { path: 'form1', component: Form1Component },
-  { path: 'form2', component: Form2Component }
+  { path: '', redirectTo: '/form/0', pathMatch: 'full' },
+  { path: 'form/:id', component: Form1Component }
 ];
 
 @NgModule({

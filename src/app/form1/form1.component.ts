@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormService, SubFormConfig } from '../form.service';
@@ -10,14 +11,16 @@ import { FormService, SubFormConfig } from '../form.service';
 })
 export class Form1Component implements OnInit {
 
-  id = 0;
   formConfig: SubFormConfig;
 
-  constructor(private formService: FormService) {
-    this.formConfig = this.formService.subForms[this.id];
-  }
+  constructor(private formService: FormService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(paramMap => {
+      const id = +paramMap.get('id');
+      this.formConfig = this.formService.subForms[id];
+    });
   }
 
 }
