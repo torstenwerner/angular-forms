@@ -4,9 +4,12 @@
     Welcome to {{title}}!
   </h1>
 
+  <nav>
+    <a routerLink="/form1">Form 1</a>
+    <a routerLink="/form2">Form 2</a>
+  </nav>
   <form [formGroup]="fullform">
-    <app-form1></app-form1>
-    <app-form2></app-form2>
+    <router-outlet></router-outlet>
   </form>
 
   <h2>full form</h2>
