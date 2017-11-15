@@ -15,6 +15,7 @@ export class SubformComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.formService.formConfig(this.route).subscribe(config => this.formConfig = config);
+    this.formService.formConfig(this.route)
+      .subscribe(formConfig => this.formConfig = formConfig);
   }
 }
