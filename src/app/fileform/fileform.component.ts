@@ -18,8 +18,9 @@ export class FileformComponent implements OnInit {
   }
 
   onChange(fileList: FileList) {
-    const reader = new FileReader();
     this.downloadUrl = this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(fileList.item(0)));
+
+    const reader = new FileReader();
     reader.onload = event => this.base64 = btoa(reader.result);
     reader.readAsBinaryString(fileList.item(0));
   }
