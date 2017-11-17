@@ -1,3 +1,4 @@
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -9,15 +10,17 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 export class FileformComponent implements OnInit {
 
   base64 = '';
+  downloadUrl: SafeUrl;
 
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
   }
 
-  onChange(data: FileList) {
+  onChange(fileList: FileList) {
     const reader = new FileReader();
+    this.downloadUrl = this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(fileList.item(0)));
     reader.onload = event => this.base64 = btoa(reader.result);
-    reader.readAsBinaryString(data.item(0));
+    reader.readAsBinaryString(fileList.item(0));
   }
 }

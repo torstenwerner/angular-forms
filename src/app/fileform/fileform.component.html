@@ -1,4 +1,12 @@
+<hr>
 <form>
   <input #file type="file" (change)="onChange(file.files)">
+  <hr>
   <textarea rows="20" cols="80">{{base64}}</textarea>
 </form>
+
+<p>
+  <a [href]="downloadUrl">Download</a>
+</p>
+
+<hr>
