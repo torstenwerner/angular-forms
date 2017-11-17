@@ -7,12 +7,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormService } from './form.service';
 import { AppRoutingModule } from './app-routing.module';
+import { FileformComponent } from './fileform/fileform.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SubformComponent
+    SubformComponent,
+    FileformComponent
   ],
   imports: [
     BrowserModule,
