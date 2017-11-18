@@ -37,7 +37,7 @@ export class FormService {
 
   /**
    * Maps an observable of id to an observable of FormConfig.
-   * 
+   *
    * @param id$ the numeric id of the subform
    */
   formConfig(id$: Observable<number>): Observable<FormConfig> {
