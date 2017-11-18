@@ -2,6 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormService, FormConfig } from '../form.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   templateUrl: './subform.component.html',
@@ -15,7 +16,9 @@ export class SubformComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.formService.formConfig(this.route)
+    const id$: Observable<number> = this.route.paramMap
+      .map(paramMap => +paramMap.get('id'));
+    this.formService.formConfig(id$)
       .subscribe(formConfig => this.formConfig = formConfig);
   }
 }

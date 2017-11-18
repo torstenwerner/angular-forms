@@ -1,6 +1,5 @@
 import { FormControl, FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
@@ -36,7 +35,12 @@ export class FormService {
     ];
   }
 
-  formConfig(route: ActivatedRoute): Observable<FormConfig> {
-    return route.paramMap.map(paramMap => this.subForms[+paramMap.get('id')]);
+  /**
+   * Maps an observable of id to an observable of FormConfig.
+   * 
+   * @param id$ the numeric id of the subform
+   */
+  formConfig(id$: Observable<number>): Observable<FormConfig> {
+    return id$.map(id => this.subForms[id]);
   }
 }
